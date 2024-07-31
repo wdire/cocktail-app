@@ -1,3 +1,9 @@
+import SearchPage from "@/components/search-page";
+
 export default function Home() {
-  return <main>Hello Cocktail</main>;
+  return (
+    <main>
+      <SearchPage />
+    </main>
+  );
 }

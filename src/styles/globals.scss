@@ -1,7 +1,4 @@
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-rgb: 240, 240, 240;
-}
+@import "./colors.scss";
 
 * {
   box-sizing: border-box;
@@ -15,9 +12,21 @@ body {
   overflow-x: hidden;
 }
 
+body,
+input,
+button {
+  font-family: var(--inter_font);
+}
+
+input:focus,
+button:focus {
+  outline: 0;
+  box-shadow: 2 0 0 0 6px red;
+}
+
 body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-rgb));
+  color: $text-color;
+  background: $background-color;
 }
 
 a {
