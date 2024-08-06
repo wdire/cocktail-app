@@ -75,3 +75,16 @@
     background: darken($color: $secondary-color, $amount: 7);
   }
 }
+
+.bookmarked {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 34px;
+  height: 34px;
+  color: $secondary-color;
+  background: #fff;
+  border-radius: 50%;
+  padding: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

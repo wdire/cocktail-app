@@ -3,6 +3,7 @@ import styles from "./cocktail-card.module.scss";
 import { CocktailSearchResultItem } from "@/types/cocktail.type";
 import { useContext } from "react";
 import { CocktailsContext } from "@/context/cocktails-context";
+import { BookmarkedIcon } from "../_helpers/icons";
 
 type CocktailCardProps = {
   img_src: string;
@@ -27,6 +28,14 @@ const CocktailCard = ({ img_src, name, cocktail }: CocktailCardProps) => {
   return (
     <div className={styles.cocktail_card}>
       <Image src={img_src} width={400} height={400} alt="" />
+
+      {isSaved ? (
+        <div className={styles.bookmarked}>
+          <BookmarkedIcon />
+        </div>
+      ) : (
+        ""
+      )}
 
       <div className={styles.details}>
         <h3 className={styles.name}>{name}</h3>
