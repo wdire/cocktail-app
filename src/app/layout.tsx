@@ -5,7 +5,7 @@ import "../styles/globals.scss";
 const inter = Inter({ subsets: ["latin"], variable: "--inter_font" });
 
 export const metadata: Metadata = {
-  title: "Cocktail App - Expert Approved",
+  title: "Cocktail App - Expert Recipes",
   description:
     "Every 11 of 10 expert cocktailers use Cocktail App. Join Among The Pros.",
 };
