@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "../styles/globals.scss";
 
-const inter = Inter({ subsets: ["latin"], variable: "--inter_font" });
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--montserrat_font",
+});
 
 export const metadata: Metadata = {
   title: "Cocktail App - Expert Recipes",
@@ -17,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.variable}>{children}</body>
+      <body className={montserrat.variable}>{children}</body>
     </html>
   );
 }

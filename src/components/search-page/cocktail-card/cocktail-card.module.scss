@@ -1,0 +1,77 @@
+@import "/src/styles/colors.scss";
+@import "/src/styles/utils/index.scss";
+
+.cocktail_card {
+  --padding: 18px;
+  --name-size: 18px;
+  --button-height: 37px;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  border: 1px solid #e0e0e0;
+  padding-bottom: calc(
+    var(--name-size) + var(--padding) * 2 + 4px
+  ); // height of details with one line name
+
+  @include media-md {
+    --padding: 14px;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 1;
+  }
+
+  &:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+
+    .details {
+      transform: translateY(0px);
+    }
+  }
+}
+
+.details {
+  padding: 0 var(--padding);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(calc(var(--button-height) + var(--padding)));
+  transition: transform ease 0.3s;
+}
+
+.name {
+  font-size: var(--name-size);
+  padding: var(--padding) 0;
+}
+
+.add_to_cart {
+  margin-bottom: var(--padding);
+  background: none;
+  border: none;
+  width: 100%;
+  padding: 10px;
+  height: var(--button-height);
+  border-radius: 10px;
+  background: $secondary-color;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  transition: background ease-in-out 0.3s;
+
+  &:hover {
+    background: lighten($color: $secondary-color, $amount: 5);
+  }
+
+  &:active {
+    background: darken($color: $secondary-color, $amount: 7);
+  }
+}

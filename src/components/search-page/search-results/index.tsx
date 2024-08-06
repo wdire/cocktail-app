@@ -3,6 +3,8 @@
 import { cocktailSearchAction } from "@/actions/cocktail-search.action";
 import { CocktailSearchResultItem } from "@/types/cocktail.type";
 import { useCallback, useEffect, useState } from "react";
+import CocktailCard from "../cocktail-card";
+import styles from "./search-results.module.scss";
 
 type SearchResultsProps = {
   searchQuery: string;
@@ -36,8 +38,18 @@ const SearchResults = ({ searchQuery }: SearchResultsProps) => {
 
   return (
     <div>
-      Search results {searchQuery}
-      <pre>{JSON.stringify(results, null, 1)}</pre>{" "}
+      <div className={styles.results_list}>
+        {results?.map((result, index) => {
+          return (
+            <CocktailCard
+              id={result.idDrink}
+              img_src={result.strDrinkThumb}
+              name={result.strDrink}
+              key={index}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };
