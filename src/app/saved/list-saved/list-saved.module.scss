@@ -1,0 +1,11 @@
+@import "/src/styles/colors.scss";
+
+.list_saved {
+  h1 {
+    margin-bottom: 30px;
+
+    span {
+      color: $secondary-color;
+    }
+  }
+}

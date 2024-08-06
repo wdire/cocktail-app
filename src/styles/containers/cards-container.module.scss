@@ -1,13 +1,10 @@
-@import "/src/styles/utils/index.scss";
+@import "../colors.scss";
+@import "../utils/index.scss";
 
-.results_list {
+.cards_container {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 18px;
-  width: 1300px;
-  max-width: 100%;
-  margin: 24px auto;
-  padding: 0 16px;
 
   @include media-lg {
     grid-template-columns: repeat(3, minmax(0, 1fr));

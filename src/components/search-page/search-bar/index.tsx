@@ -2,6 +2,7 @@
 
 import { useDebouncedCallback } from "use-debounce";
 import styles from "./search-bar.module.scss";
+import { SearchIcon } from "@/components/_helpers/icons";
 
 type SearchBarProps = {
   searchQuery?: string;
@@ -21,12 +22,16 @@ const SearchBar = ({ setSearchQuery }: SearchBarProps) => {
   return (
     <div className={styles.search_bar_container}>
       <h2>Search Cocktails</h2>
-      <input
-        type="text"
-        onChange={handleSearchInputChange}
-        className={styles.search_bar}
-        placeholder="Type here..."
-      />
+      <div className={styles.search_bar}>
+        <input
+          type="text"
+          onChange={handleSearchInputChange}
+          placeholder="Type here..."
+        />
+        <div className={styles.icon}>
+          <SearchIcon />
+        </div>
+      </div>
     </div>
   );
 };

@@ -14,7 +14,7 @@ const CocktailCard = ({ img_src, name }: CocktailCardProps) => {
 
       <div className={styles.details}>
         <h3 className={styles.name}>{name}</h3>
-        <button className={styles.add_to_cart}>ADD TO CART</button>
+        <button className={styles.save_button}>SAVE</button>
       </div>
     </div>
   );

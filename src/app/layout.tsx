@@ -8,7 +8,10 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Cocktail App - Expert Recipes",
+  title: {
+    template: "%s / Cocktail App - Expert Recipes",
+    default: "Cocktail App - Expert Recipes",
+  },
   description:
     "Every 11 of 10 expert cocktailers use Cocktail App. Join Among The Pros.",
 };

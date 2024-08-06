@@ -1,0 +1,42 @@
+@import "/src/styles/colors.scss";
+
+.floating_save_button {
+  background: none;
+  border: none;
+  width: 46px;
+  height: 46px;
+  cursor: pointer;
+  border-radius: 50%;
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  padding: 10px;
+  background: $secondary-color;
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: lighten($color: $secondary-color, $amount: 5);
+  }
+
+  &:active {
+    background: darken($color: $secondary-color, $amount: 7);
+  }
+
+  .number {
+    position: absolute;
+    top: -2.5px;
+    right: -2.5px;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 500;
+    background: $primary-color;
+  }
+}

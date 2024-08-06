@@ -16,16 +16,33 @@
 }
 
 .search_bar {
+  position: relative;
+  width: max-content;
   margin: 0 auto;
-  padding: 0px 18px 0px 18px;
-  font-size: 20px;
-  font-weight: 600;
-  border: 0;
-  border-radius: 32px;
-  width: 300px;
-  height: 44px;
-  display: flex;
-  background: #fff;
-  border: 1px solid #eee;
-  color: $primary-color;
+
+  .icon {
+    position: absolute;
+    right: 17px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+    color: $primary-color;
+    pointer-events: none;
+  }
+
+  input {
+    margin: 0 auto;
+    padding: 0px 50px 0px 18px;
+    font-size: 20px;
+    font-weight: 600;
+    border: 0;
+    border-radius: 32px;
+    width: 300px;
+    height: 44px;
+    display: flex;
+    background: #fff;
+    border: 1px solid #eee;
+    color: $primary-color;
+  }
 }

@@ -3,8 +3,9 @@
 import { cocktailSearchAction } from "@/actions/cocktail-search.action";
 import { CocktailSearchResultItem } from "@/types/cocktail.type";
 import { useCallback, useEffect, useState } from "react";
-import CocktailCard from "../cocktail-card";
-import styles from "./search-results.module.scss";
+import CocktailCard from "../../cocktail-card";
+import stylesSectionContainer from "../../../styles/containers/section-container.module.scss";
+import stylesCardContainer from "../../../styles/containers/cards-container.module.scss";
 
 type SearchResultsProps = {
   searchQuery: string;
@@ -37,8 +38,8 @@ const SearchResults = ({ searchQuery }: SearchResultsProps) => {
   console.log(results);
 
   return (
-    <div>
-      <div className={styles.results_list}>
+    <div className={stylesSectionContainer.section_container}>
+      <div className={stylesCardContainer.cards_container}>
         {results?.map((result, index) => {
           return (
             <CocktailCard
