@@ -3,21 +3,24 @@
 import { useDebouncedCallback } from "use-debounce";
 import styles from "./search-bar.module.scss";
 import { SearchIcon } from "@/components/_helpers/icons";
+import { useContext, useState } from "react";
+import { CocktailsContext } from "@/context/cocktails-context";
 
-type SearchBarProps = {
-  searchQuery?: string;
-  setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
-};
+const SearchBar = () => {
+  const { searchQuery, setSearchQuery } = useContext(CocktailsContext);
 
-const SearchBar = ({ setSearchQuery }: SearchBarProps) => {
-  const handleSearchInputChange = useDebouncedCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      if (e.target.value || e.target.value === "") {
-        setSearchQuery(e.target.value);
-      }
-    },
-    500,
-  );
+  const [inputValue, setInputValue] = useState(searchQuery);
+
+  const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value || e.target.value === "") {
+      setInputValue(e.target.value);
+      setSearchQueryDebounce(e.target.value);
+    }
+  };
+
+  const setSearchQueryDebounce = useDebouncedCallback((value: string) => {
+    setSearchQuery(value);
+  }, 500);
 
   return (
     <div className={styles.search_bar_container}>
@@ -25,7 +28,8 @@ const SearchBar = ({ setSearchQuery }: SearchBarProps) => {
       <div className={styles.search_bar}>
         <input
           type="text"
-          onChange={handleSearchInputChange}
+          onChange={onInputChange}
+          value={inputValue}
           placeholder="Type here..."
         />
         <div className={styles.icon}>
