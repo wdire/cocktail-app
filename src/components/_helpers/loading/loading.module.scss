@@ -1,0 +1,21 @@
+@import "/src/styles/colors.scss";
+
+.loading {
+  width: 34px;
+  height: 34px;
+  animation: spin 1s linear infinite;
+  color: $primary-color;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
