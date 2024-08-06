@@ -5,6 +5,8 @@
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 18px;
+  margin-top: 24px;
+  margin-bottom: 24px;
 
   @include media-lg {
     grid-template-columns: repeat(3, minmax(0, 1fr));
