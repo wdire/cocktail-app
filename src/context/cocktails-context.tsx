@@ -1,7 +1,9 @@
 "use client";
 
+import { STORAGE_KEYS } from "@/lib/config";
+import localStorageManager from "@/lib/local-storage-manager";
 import { CocktailSearchResultItem } from "@/types/cocktail.type";
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 export type CocktailsContext = {
   searchQuery: string;
@@ -29,18 +31,40 @@ export const CocktailsProvider: React.FC<{ children: React.ReactNode }> = ({
     return savedCocktails.map((cocktail) => cocktail.idDrink);
   }, [savedCocktails]);
 
+  useEffect(() => {
+    const cocktail_saves = localStorageManager.getItem<
+      CocktailSearchResultItem[]
+    >(STORAGE_KEYS.COCKTAIL_SAVES);
+
+    console.log("cocktail_saves", cocktail_saves);
+
+    if (cocktail_saves && cocktail_saves?.length > 0) {
+      setSavedCocktails(cocktail_saves);
+    }
+  }, []);
+
   const saveCocktail = (cocktail: CocktailSearchResultItem) => {
     if (!savedCocktailIds?.includes(cocktail.idDrink)) {
-      setSavedCocktails([...savedCocktails, cocktail]);
+      const newSavedCocktails = [...savedCocktails, cocktail];
+
+      setSavedCocktails(newSavedCocktails);
+      localStorageManager.setItem(
+        STORAGE_KEYS.COCKTAIL_SAVES,
+        newSavedCocktails,
+      );
     }
   };
 
   const removeCocktail = (cocktail_id: string) => {
     if (savedCocktailIds?.includes(cocktail_id)) {
-      setSavedCocktails(
-        savedCocktails.filter((cocktail) => {
-          return cocktail_id !== cocktail.idDrink;
-        }),
+      const newSavedCocktails = savedCocktails.filter((cocktail) => {
+        return cocktail_id !== cocktail.idDrink;
+      });
+
+      setSavedCocktails(newSavedCocktails);
+      localStorageManager.setItem(
+        STORAGE_KEYS.COCKTAIL_SAVES,
+        newSavedCocktails,
       );
     }
   };

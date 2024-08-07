@@ -20,3 +20,7 @@ export const searchSuggessionsArray = [
   "Aperol Spritz",
   "Tom Collins",
 ];
+
+export const STORAGE_KEYS = {
+  COCKTAIL_SAVES: "COCKTAIL_SAVES",
+};
