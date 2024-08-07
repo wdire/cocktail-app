@@ -23,7 +23,6 @@ export const CocktailsProvider: React.FC<{ children: React.ReactNode }> = ({
   const [savedCocktails, setSavedCocktails] = useState<
     CocktailSearchResultItem[]
   >([]);
-
   const [searchQuery, setSearchQuery] = useState("");
 
   const savedCocktailIds = useMemo(() => {

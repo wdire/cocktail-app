@@ -46,3 +46,39 @@
     color: $primary-color;
   }
 }
+
+.suggessions {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+  gap: 8px;
+}
+
+.suggession {
+  background: white;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 12px;
+  color: $primary-color;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: lighten($color: white, $amount: 5);
+  }
+
+  &:active {
+    background: darken($color: white, $amount: 7);
+  }
+
+  &_active {
+    background: $secondary-color;
+    color: white;
+
+    &:hover,
+    &:active {
+      background: $secondary-color;
+    }
+  }
+}

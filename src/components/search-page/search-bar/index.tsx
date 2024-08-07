@@ -5,8 +5,13 @@ import styles from "./search-bar.module.scss";
 import { SearchIcon } from "@/components/_helpers/icons";
 import { useContext, useState } from "react";
 import { CocktailsContext } from "@/context/cocktails-context";
+import SearchSuggessions from "./search-suggessions";
 
-const SearchBar = () => {
+type SearchBarProps = {
+  searchSuggestions: string[];
+};
+
+const SearchBar = ({ searchSuggestions }: SearchBarProps) => {
   const { searchQuery, setSearchQuery } = useContext(CocktailsContext);
 
   const [inputValue, setInputValue] = useState(searchQuery);
@@ -16,6 +21,11 @@ const SearchBar = () => {
       setInputValue(e.target.value);
       setSearchQueryDebounce(e.target.value);
     }
+  };
+
+  const setSearchAndInputValue = (value: string) => {
+    setInputValue(value);
+    setSearchQuery(value);
   };
 
   const setSearchQueryDebounce = useDebouncedCallback((value: string) => {
@@ -36,6 +46,10 @@ const SearchBar = () => {
           <SearchIcon />
         </div>
       </div>
+      <SearchSuggessions
+        searchSuggessions={searchSuggestions}
+        setSearchQuery={setSearchAndInputValue}
+      />
     </div>
   );
 };
